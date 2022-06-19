@@ -1,0 +1,159 @@
+// https://github.com/blynkkk/blynk-server/blob/master/README.md#blynk-protocol
+
+export const HEADER_SIZE = 7
+
+export const BODY_SEPARATOR = '\0'
+
+// https://github.com/blynkkk/blynk-server/blob/master/server/core/src/main/java/cc/blynk/server/core/protocol/enums/Command.java#L10
+export enum Command {
+  RESPONSE = 0,
+
+  //app commands
+  REGISTER = 1,
+  LOGIN = 2,
+  REDEEM = 3,
+  HARDWARE_CONNECTED = 4,
+
+  PING = 6,
+  ACTIVATE_DASHBOARD = 7,
+  DEACTIVATE_DASHBOARD = 8,
+  REFRESH_TOKEN = 9,
+  //HARDWARE commands
+  TWEET = 12,
+  EMAIL = 13,
+  PUSH_NOTIFICATION = 14,
+  BRIDGE = 15,
+  HARDWARE_SYNC = 16,
+  BLYNK_INTERNAL = 17,
+  SMS = 18,
+  SET_WIDGET_PROPERTY = 19,
+  HARDWARE = 20,
+  //app commands
+  CREATE_DASH = 21,
+  UPDATE_DASH = 22,
+  DELETE_DASH = 23,
+  LOAD_PROFILE_GZIPPED = 24,
+  APP_SYNC = 25,
+  SHARING = 26,
+  ADD_PUSH_TOKEN = 27,
+  EXPORT_GRAPH_DATA = 28,
+
+  HARDWARE_LOGIN = 29,
+  //app sharing commands
+  GET_SHARE_TOKEN = 30,
+  REFRESH_SHARE_TOKEN = 31,
+  SHARE_LOGIN = 32,
+  //app commands
+  CREATE_WIDGET = 33,
+  UPDATE_WIDGET = 34,
+  DELETE_WIDGET = 35,
+
+  //energy commands
+  GET_ENERGY = 36,
+  ADD_ENERGY = 37,
+
+  UPDATE_PROJECT_SETTINGS = 38,
+
+  ASSIGN_TOKEN = 39,
+
+  GET_SERVER = 40,
+  CONNECT_REDIRECT = 41,
+
+  CREATE_DEVICE = 42,
+  UPDATE_DEVICE = 43,
+  DELETE_DEVICE = 44,
+  GET_DEVICES = 45,
+
+  CREATE_TAG = 46,
+  UPDATE_TAG = 47,
+  DELETE_TAG = 48,
+  GET_TAGS = 49,
+  MOBILE_GET_DEVICE = 50,
+
+  UPDATE_FACE = 51,
+
+  //------------------------------------------
+
+  //web sockets
+  WEB_SOCKETS = 52,
+
+  EVENTOR = 53,
+  WEB_HOOKS = 54,
+
+  CREATE_APP = 55,
+  UPDATE_APP = 56,
+  DELETE_APP = 57,
+  GET_PROJECT_BY_TOKEN = 58,
+  EMAIL_QR = 59,
+  GET_ENHANCED_GRAPH_DATA = 60,
+  DELETE_ENHANCED_GRAPH_DATA = 61,
+
+  GET_CLONE_CODE = 62,
+  GET_PROJECT_BY_CLONE_CODE = 63,
+
+  HARDWARE_LOG_EVENT = 64,
+  HARDWARE_RESEND_FROM_BLUETOOTH = 65,
+  LOGOUT = 66,
+
+  CREATE_TILE_TEMPLATE = 67,
+  UPDATE_TILE_TEMPLATE = 68,
+  DELETE_TILE_TEMPLATE = 69,
+  GET_WIDGET = 70,
+  DEVICE_OFFLINE = 71,
+  OUTDATED_APP_NOTIFICATION = 72,
+  TRACK_DEVICE = 73,
+  GET_PROVISION_TOKEN = 74,
+  RESOLVE_EVENT = 75,
+  DELETE_DEVICE_DATA = 76,
+
+  CREATE_REPORT = 77,
+  UPDATE_REPORT = 78,
+  DELETE_REPORT = 79,
+  EXPORT_REPORT = 80,
+
+  RESET_PASSWORD = 81,
+
+  //http codes. Used only for stats
+  HTTP_IS_HARDWARE_CONNECTED = 82,
+  HTTP_IS_APP_CONNECTED = 83,
+  HTTP_GET_PIN_DATA = 84,
+  HTTP_UPDATE_PIN_DATA = 85,
+  HTTP_NOTIFY = 86,
+  HTTP_EMAIL = 87,
+  HTTP_GET_PROJECT = 88,
+  HTTP_QR = 89,
+  HTTP_GET_HISTORY_DATA = 90,
+  HTTP_START_OTA = 91,
+  HTTP_STOP_OTA = 92,
+  HTTP_CLONE = 93,
+  HTTP_TOTAL = 94,
+
+  DELETE_USER = 95,
+
+  //right now we have less than 100 commands
+  LAST_COMMAND_INDEX = 100
+}
+
+// https://github.com/blynkkk/blynk-server/blob/master/server/core/src/main/java/cc/blynk/server/core/protocol/enums/Response.java#L12
+export enum BlynkResponse {
+  OK = 200,
+  QUOTA_LIMIT = 1,
+  ILLEGAL_COMMAND = 2,
+  USER_NOT_REGISTERED = 3,
+  USER_ALREADY_REGISTERED = 4,
+  USER_NOT_AUTHENTICATED = 5,
+  NOT_ALLOWED = 6,
+  DEVICE_NOT_IN_NETWORK = 7,
+  NO_ACTIVE_DASHBOARD = 8,
+  INVALID_TOKEN = 9,
+  ILLEGAL_COMMAND_BODY = 11,
+
+  NOTIFICATION_INVALID_BODY = 13,
+  NOTIFICATION_NOT_AUTHORIZED = 14,
+  NOTIFICATION_ERROR = 15,
+
+  NO_DATA = 17,
+  SERVER_ERROR = 19,
+  ENERGY_LIMIT = 21,
+  FACEBOOK_USER_LOGIN_WITH_PASS = 22
+}
