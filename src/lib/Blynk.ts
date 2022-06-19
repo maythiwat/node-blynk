@@ -32,6 +32,13 @@ class Blynk extends Protocol {
       .then((r) => JSON.parse(r))
       .catch(() => null)
   }
+
+  async hardware(dashIdAndTargetId: string, ops: string, gpio: string, value: string) {
+    return this.sendCommand(Command.HARDWARE, [dashIdAndTargetId, ops, gpio, value], 250, true)
+      .then((r) => {
+        if (typeof r != 'undefined') throw new Error(BlynkResponse[r])
+      })
+  }
 }
 
 export default Blynk
